@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommendations</title>
+    <link rel="stylesheet" href="../static/css/home.css">
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        <h1>Real-time Search Bar</h1>
+        <div>
+            <input type="text" id="searchInput" name="searchInput" placeholder="Search..." value="">
+        </div>
+        <button type="button" onclick="send_data()">Search</button>
+    </form>
+    <div id="movieList">
+        {% for movie in result %}
+        <option value="{{ movie }}"></option>
+        {% endfor %}
+    </div>
+</body>
+<script src="../static/js/home.js"></script>
+<script>
+    if ( window.history.replaceState ) {
+      window.history.replaceState( null, null, window.location.href );
+    }
+    </script>
+</html>
